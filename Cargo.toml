@@ -1,0 +1,8 @@
+[package]
+name = "pumpkin-plugin-toolkit"
+version = "0.1.0"
+edition = "2024"
+description = "Shared helpers for Pumpkin WASM plugins, built on top of pumpkin-plugin-api."
+
+[dependencies]
+pumpkin-plugin-api = { version = "0.2.1", git = "https://github.com/Pumpkin-MC/Pumpkin", package = "pumpkin-plugin-api" }
