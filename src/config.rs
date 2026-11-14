@@ -6,7 +6,7 @@ pub trait PluginConfig: Serialize + for<'de> Deserialize<'de> + Default {
 }
 
 pub fn load_config<T: PluginConfig>(context: &Context, plugin_name:&str, file_name: &str) -> Result<T, String> {
-    load_config_with_dir_and_filename(context, format!("plugins/{plugin_name}").as_str(), file_name)
+    load_config_with_dir_and_filename(context, format!("config/{plugin_name}").as_str(), file_name)
 }
 
 pub fn load_config_with_dir_and_filename<T: PluginConfig>(context: &Context, config_dir: &str, file_name: &str) -> Result<T, String> {
