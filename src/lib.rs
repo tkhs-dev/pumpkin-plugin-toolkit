@@ -11,3 +11,4 @@
 /// player-only restrictions, ...) applied at the `.execute(...)` call site
 /// instead of duplicated inside every handler's `handle()` body.
 pub mod command;
+mod config;
