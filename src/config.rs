@@ -2,7 +2,7 @@ use std::path::{Path, PathBuf};
 use pumpkin_plugin_api::Context;
 use serde::{Deserialize, Serialize};
 
-trait PluginConfig: Serialize + for<'de> Deserialize<'de> + Default {
+pub trait PluginConfig: Serialize + for<'de> Deserialize<'de> + Default {
 }
 
 pub fn load_config<T: PluginConfig>(context: &Context, plugin_name:&str, file_name: &str) -> Result<T, String> {
