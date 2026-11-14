@@ -5,7 +5,11 @@ use serde::{Deserialize, Serialize};
 trait PluginConfig: Serialize + for<'de> Deserialize<'de> + Default {
 }
 
-pub fn load_config<T: PluginConfig>(context: &Context, config_dir: &str, file_name: &str) -> Result<T, String> {
+pub fn load_config<T: PluginConfig>(context: &Context, plugin_name:&str, file_name: &str) -> Result<T, String> {
+    load_config_with_dir_and_filename(context, format!("plugins/{plugin_name}").as_str(), file_name)
+}
+
+pub fn load_config_with_dir_and_filename<T: PluginConfig>(context: &Context, config_dir: &str, file_name: &str) -> Result<T, String> {
     let config_path = construct_config_path(context, config_dir, file_name)?;
     create_config_directory_if_not_exists(context, &config_path);
     read_or_create_config_file(&config_path)
