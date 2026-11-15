@@ -12,3 +12,5 @@
 /// instead of duplicated inside every handler's `handle()` body.
 pub mod command;
 pub mod config;
+pub mod storage;
+pub mod binary;
